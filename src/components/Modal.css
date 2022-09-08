@@ -1,0 +1,60 @@
+.modal {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+}
+
+.modal.active {
+    transform: scale(1);
+}
+
+.modal-content {
+    padding: 20px;
+    background-color: white;
+    width: 20%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-close {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-input {
+    border: none;
+    border-bottom: 1px solid silver;
+    width: 100%;
+}
+
+.btn-save {
+    background-color: #1a1a1a;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 10px 10px 0 0;
+    cursor: pointer;
+}
+
+.modal-title {
+    color: #bebebe;
+}
+
+.group-btn {
+    width: 100%;
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+}
