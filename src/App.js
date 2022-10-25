@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import AddEventModal from './components/AddEventModal/AddEventModal'
+import AddEventModal from './components/AddEventModal/AddEventModal';
 import EditEventModal from './components/EditEventModal/EditEventModal';
 import GroupEvents from './components/GroupEvents/GroupEvents';
 import ShowEventModal from './components/ShowEventModal/ShowEventModal';
@@ -9,11 +9,11 @@ const App = () => {
   let today = new Date();
   let grid = { id: 0, day: 0 };
   const monthWeeks = [0, 1, 2, 3, 4, 5];
-  const weekDays = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+  const weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 
   const [events, setEvents] = useState(() => {
     const events = JSON.parse(localStorage.getItem('events'));
-    return events || []
+    return events || [];
   });
   const [monthDifference, setMonthDifference] = useState(0);
   const [currentEvent, setCurrentEvent] = useState({});
@@ -27,8 +27,8 @@ const App = () => {
   const [showEditModal, setShowEditModal] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem('events', JSON.stringify(events))
-  }, [events])
+    localStorage.setItem('events', JSON.stringify(events));
+  }, [events]);
 
   useEffect(() => {
     today = new Date();
@@ -75,11 +75,10 @@ const App = () => {
         endDate: end,
         startDate: start
       }
-    ]); 
+    ]);
   };
 
   const updateEvent = ({ id, name, description, start, end, color }) => {
-
     setEvents([
       ...events.filter((event) => event.id != id),
       {
@@ -94,7 +93,6 @@ const App = () => {
   };
 
   const deleteEvent = () => {
-
     setEvents([...events.filter((event) => event.id != currentEvent.id)]);
     setShowModal(false);
   };
@@ -124,10 +122,7 @@ const App = () => {
       />
       <div className="header">
         <div>
-          <button
-            className="event-btn"
-            onClick={() => setShowAddModal(!showAddModal)}
-          >
+          <button className="event-btn" onClick={() => setShowAddModal(!showAddModal)}>
             +
           </button>
         </div>
@@ -136,22 +131,20 @@ const App = () => {
             title="previous month"
             data-bs-toggle="tooltip"
             className="change-month-btn"
-            onClick={() => setMonthDifference(monthDifference - 1)}
-          >
+            onClick={() => setMonthDifference(monthDifference - 1)}>
             {'<'}
           </button>
           <span className="current-month-year">
-            {month.today.toLocaleString("default", {
-              month: "long",
-              year: "numeric"
+            {month.today.toLocaleString('default', {
+              month: 'long',
+              year: 'numeric'
             })}
           </span>
           <button
             title="next month"
             data-bs-toggle="tooltip"
             className="change-month-btn"
-            onClick={() => setMonthDifference(monthDifference + 1)}
-          >
+            onClick={() => setMonthDifference(monthDifference + 1)}>
             {'>'}
           </button>
         </div>
@@ -169,24 +162,21 @@ const App = () => {
             {monthWeeks.map((week, index) => (
               <tr key={index}>
                 {weekDays.map((day, id) => {
-                  if (grid.day || month.firstDay.getDay() == grid.id)
-                    grid.day++;
+                  if (grid.day || month.firstDay.getDay() == grid.id) grid.day++;
                   grid.id++;
                   if (grid.day > month.lastDay.getDate()) grid.day = 0;
 
                   return (
-                    <td key={id} className={"table-day " + (!grid.day && "empty-day")}>
-                      <div className={
-                        monthDifference == 0 &&
-                          grid.day == new Date().getDate()
-                          ? 'current-day'
-                          : "day"
-                      }>
+                    <td key={id} className={'table-day ' + (!grid.day && 'empty-day')}>
+                      <div
+                        className={
+                          monthDifference == 0 && grid.day == new Date().getDate()
+                            ? 'current-day'
+                            : 'day'
+                        }>
                         {grid.day != 0 && (
                           <>
-                            <div className='table-day-title'>
-                              {grid.day}
-                            </div>
+                            <div className="table-day-title">{grid.day}</div>
                             <GroupEvents
                               events={getDayEvents(grid.day)}
                               show={(id) => {
