@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     transform: scale(0);
+    z-index: 10;
 }
 
 .modal.active {
@@ -24,28 +25,32 @@
 .modal-header {
     display: flex;
     justify-content: space-between;
+    color: #e66b6b;
+    align-items: center;
 }
 
 .btn-close {
     background-color: white;
     border: none;
     cursor: pointer;
+    color: #e66b6b;
 }
 
 .modal-input {
     border: none;
     border-bottom: 1px solid silver;
     width: 100%;
+    margin: 15px 0;
 }
 
-.btn-save {
-    background-color: #1a1a1a;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 3px;
-    margin: 10px 10px 0 0;
-    cursor: pointer;
+.btn-save button {
+    background-color: #e66b6b;
+    color: #FFF;
+    margin: 0 5px 0 0;
+}
+
+.btn-save button:hover {
+    background-color: #e66b6b;
 }
 
 .modal-title {
@@ -54,7 +59,9 @@
 
 .group-btn {
     width: 100%;
-    background-color: #efefef;
+    background-color: #e66b6b;
     border: none;
+    border-radius: 3px;
     cursor: pointer;
+    color: #fff;
 }

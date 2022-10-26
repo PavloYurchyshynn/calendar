@@ -1,3 +1,5 @@
+import { Button } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import '../Modal.css';
 
 const ShowEventModal = ({ visible, event, update, toggle, erase }) => {
@@ -10,9 +12,7 @@ const ShowEventModal = ({ visible, event, update, toggle, erase }) => {
         <div className="modal-content">
           <div className="modal-header">
             <h4>{event?.name}</h4>
-            <button type="button" onClick={toggle} className="btn-close">
-              &#10005;
-            </button>
+            <CloseIcon onClick={toggle} className="btn-close" />
           </div>
           <div>
             <p>{event?.description}</p>
@@ -39,13 +39,9 @@ const ShowEventModal = ({ visible, event, update, toggle, erase }) => {
               </div>
             </h4>
           </div>
-          <div>
-            <button className="btn-save" onClick={update}>
-              Edit
-            </button>
-            <button className="btn-save" onClick={erase}>
-              Delete
-            </button>
+          <div className="btn-save">
+            <Button onClick={update}>Edit</Button>
+            <Button onClick={erase}>Delete</Button>
           </div>
         </div>
       </div>

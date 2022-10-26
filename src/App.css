@@ -1,36 +1,44 @@
 .app {
-  margin: 70px 15%;
+  margin: 70px 30%;
+  background-color: #FFF;
+  border-radius: 20px;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  padding: 40px 20px;
+  background-color: #e66b6b;
+  border-radius: 20px 20px 0 0;
+}
+
+.month-nav {
+  display: flex;
+  text-align: center;
 }
 
 .current-month-year {
-  color: #000;
+  color: #FFF;
   font-size: 20px;
   font-weight: 600;
 }
 
 .change-month-btn {
-  background-color: white;
-  border: none;
-  width: 30px;
-  height: 30px;
-  margin: 0 5px;
+  color: #FFF;
   cursor: pointer;
+  margin: 0 10px;
 }
 
-.event-btn {
-  background-color: #47a4cb;
-  border-radius: 50%;
-  border: none;
-  width: 30px;
+.event-btn button {
+  background-color: #e85656;
   height: 30px;
   color: #fff;
   font-size: 16px;
+  text-transform: lowercase;
+}
+
+.event-btn button:hover {
+  background-color: #ec4545;
 }
 
 .event-btn:hover {
@@ -40,18 +48,18 @@
 .table {
   width: 100%;
   margin: 0 auto;
-  border: 1px solid silver;
   text-align: center;
 }
 
 .table-head-text {
   text-transform: uppercase;
+  color: #e66b6b;
+  padding: 10px 0;
 }
 
 .table-day {
-  border: 1px solid silver;
   width: 10%;
-  height: 90px;
+  height: 70px;
 }
 
 .day {
@@ -60,14 +68,14 @@
 
 .table-day-title {
   display: flex;
-  margin: 0 0 0 5px;
-}
-
-.empty-day {
-  background-color: rgb(238, 238, 238);
+  justify-content: center;
 }
 
 .current-day {
   height: 100%;
-  background-color: #edf8eb;
+}
+
+.current-day div{
+  font-weight: 600;
+  color: #e66b6b;
 }

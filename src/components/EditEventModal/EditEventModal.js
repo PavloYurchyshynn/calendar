@@ -1,3 +1,5 @@
+import { Button, TextField } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import { useEffect, useState } from 'react';
 import '../Modal.css';
 
@@ -42,32 +44,38 @@ const EditEventModal = ({ event, toggle, visible, updateEvent }) => {
         <div className="modal-content">
           <div className="modal-header">
             <h4>Edit Event</h4>
-            <button type="button" onClick={toggle} className="btn-close">
-              &#10005;
-            </button>
+            <CloseIcon onClick={toggle} className="btn-close" />
           </div>
           <div>
             <form onSubmit={handleSubmit}>
               <div>
                 <div>
-                  <div className="modal-title">Name</div>
-                  <input
-                    type="text"
+                  <TextField
+                    id="standard-basic"
+                    label="Name"
+                    variant="standard"
                     value={name}
                     required={true}
-                    placeholder="Name"
                     className="modal-input"
                     onChange={(el) => setName(el.target.value)}
                   />
                 </div>
                 <div>
-                  <div className="modal-title">Description</div>
+                  {/* <div className="modal-title">Description</div>
                   <textarea
                     rows={3}
                     value={description}
                     placeholder="Description"
                     className="modal-input"
-                    onChange={(el) => setDescription(el.target.value)}></textarea>
+                    onChange={(el) => setDescription(el.target.value)}></textarea> */}
+                  <TextField
+                    id="standard-basic"
+                    label="Description"
+                    variant="standard"
+                    value={description}
+                    className="modal-input"
+                    onChange={(el) => setDescription(el.target.value)}
+                  />
                 </div>
                 <div>
                   <div className="modal-title">Start Date</div>
@@ -93,10 +101,10 @@ const EditEventModal = ({ event, toggle, visible, updateEvent }) => {
                   />
                 </div>
               </div>
-              <div>
-                <button className="btn-save" type="submit">
+              <div className="btn-save">
+                <Button type="submit" variant="contained">
                   Save
-                </button>
+                </Button>
               </div>
             </form>
           </div>

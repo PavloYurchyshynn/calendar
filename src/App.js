@@ -1,9 +1,12 @@
+import { Button } from '@mui/material';
 import { useEffect, useState } from 'react';
 import './App.css';
 import AddEventModal from './components/AddEventModal/AddEventModal';
 import EditEventModal from './components/EditEventModal/EditEventModal';
 import GroupEvents from './components/GroupEvents/GroupEvents';
 import ShowEventModal from './components/ShowEventModal/ShowEventModal';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 const App = () => {
   let today = new Date();
@@ -121,40 +124,36 @@ const App = () => {
         toggle={() => setShowEditModal(!showEditModal)}
       />
       <div className="header">
-        <div>
-          <button className="event-btn" onClick={() => setShowAddModal(!showAddModal)}>
-            +
-          </button>
+        <div className="event-btn">
+          <Button variant="contained" onClick={() => setShowAddModal(!showAddModal)}>
+            Add event
+          </Button>
         </div>
-        <div>
-          <button
-            title="previous month"
-            data-bs-toggle="tooltip"
+        <div className="month-nav">
+          <ArrowBackIosNewIcon
             className="change-month-btn"
-            onClick={() => setMonthDifference(monthDifference - 1)}>
-            {'<'}
-          </button>
+            onClick={() => setMonthDifference(monthDifference - 1)}
+          />
           <span className="current-month-year">
             {month.today.toLocaleString('default', {
               month: 'long',
               year: 'numeric'
             })}
           </span>
-          <button
-            title="next month"
-            data-bs-toggle="tooltip"
+          <ArrowForwardIosIcon
             className="change-month-btn"
-            onClick={() => setMonthDifference(monthDifference + 1)}>
-            {'>'}
-          </button>
+            onClick={() => setMonthDifference(monthDifference + 1)}
+          />
         </div>
       </div>
       <div className="table-container">
         <table className="table">
           <thead>
-            <tr className="table-head-text">
+            <tr>
               {weekDays.map((day, id) => (
-                <th key={id}>{day}</th>
+                <th className="table-head-text" key={id}>
+                  {day}
+                </th>
               ))}
             </tr>
           </thead>
