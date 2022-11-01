@@ -14,10 +14,11 @@ const App = () => {
   const monthWeeks = [0, 1, 2, 3, 4, 5];
   const weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 
-  const [events, setEvents] = useState(() => {
-    const events = JSON.parse(localStorage.getItem('events'));
-    return events || [];
-  });
+  const [events, setEvents] = useState([]);
+  // const [events, setEvents] = useState(() => {
+  //   const events = JSON.parse(localStorage.getItem('events'));
+  //   return events || [];
+  // });
   const [monthDifference, setMonthDifference] = useState(0);
   const [currentEvent, setCurrentEvent] = useState({});
   const [month, setMonth] = useState({
@@ -29,9 +30,9 @@ const App = () => {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
 
-  useEffect(() => {
-    localStorage.setItem('events', JSON.stringify(events));
-  }, [events]);
+  // useEffect(() => {
+  //   localStorage.setItem('events', JSON.stringify(events));
+  // }, [events]);
 
   useEffect(() => {
     today = new Date();
